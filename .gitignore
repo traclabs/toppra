@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+#Cython
+toppra/_CythonUtils.c
+toppra/solverwrapper/cy_seidel_solverwrapper.c
