@@ -7,8 +7,13 @@ add_custom_command(OUTPUT requirements_installed.txt
   COMMAND pip install -r ${CMAKE_CURRENT_SOURCE_DIR}/requirements.txt --user && touch requirements_installed.txt
 )
 
-add_custom_target(run ALL
-  COMMAND python setup.py install --user
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
-  DEPENDS requirements_installed.txt)
+add_custom_command(OUTPUT setup.py
+  COMMAND python setup.py build -f && cp setup.py ${CMAKE_BINARY_DIR}/setup.py
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_custom_target(setup ALL
+  COMMAND /bin/sh -c "if [ ${CMAKE_BINARY_DIR}/setup.py -ot setup.py ]; then python setup.py build -f; cp setup.py ${CMAKE_BINARY_DIR}/setup.py; fi; python setup.py install -f --user"
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  DEPENDS requirements_installed.txt
+  DEPENDS setup.py
+  VERBATIM)
