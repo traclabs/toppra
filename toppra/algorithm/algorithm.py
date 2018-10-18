@@ -122,7 +122,7 @@ class ParameterizationAlgorithm(object):
             if sd_average > TINY:
                 delta_t = delta_s / sd_average
             else:
-                delta_t = 1e-10  # If average speed is too slow.
+                delta_t = 1e-9  # If average speed is too slow.
             t_grid[i] = t_grid[i - 1] + delta_t
 
         q_grid = self.path.eval(self.gridpoints)
