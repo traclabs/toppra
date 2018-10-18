@@ -5,6 +5,7 @@ Most are simple wrappers over scipy.interpolators.
 import numpy as np
 from scipy.interpolate import UnivariateSpline, CubicSpline, PPoly
 import logging
+logging.basicConfig()
 logger = logging.getLogger(__name__)
 try:
     import openravepy as orpy
