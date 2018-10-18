@@ -18,7 +18,7 @@ def main():
     # we use spline interpolation.
     np.random.seed(SEED)
     way_pts = np.random.randn(N_samples, dof)
-    path = ta.SplineInterpolator(np.linspace(0, 1, 5), way_pts)
+    path = ta.SplineInterpolator(np.linspace(0, 1, N_samples), way_pts)
 
     # Create velocity bounds, then velocity constraint object
     vlim_ = np.random.rand(dof) * 20

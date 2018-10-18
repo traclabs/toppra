@@ -2,6 +2,7 @@ from setuptools import setup, Extension
 from Cython.Distutils import build_ext
 from Cython.Build import cythonize
 import numpy as np
+import os
 
 NAME = "toppra"
 VERSION = "0.2"
@@ -24,6 +25,8 @@ PACKAGES = ["toppra",
             "toppra.algorithm.reachabilitybased",
             "toppra.solverwrapper"]
 
+os.environ['CFLAGS'] = '-O3 -g0'
+
 ext_1 = Extension(SRC_DIR + "._CythonUtils",
                   [SRC_DIR + "/_CythonUtils.pyx"],
                   libraries=[],
@@ -31,7 +34,6 @@ ext_1 = Extension(SRC_DIR + "._CythonUtils",
 
 ext_2 = Extension(SRC_DIR + ".solverwrapper.cy_seidel_solverwrapper",
                   [SRC_DIR + "/solverwrapper/cy_seidel_solverwrapper.pyx"],
-                  extra_compile_args=['-O1'],
                   include_dirs=[np.get_include()])
 
 EXTENSIONS = [ext_1, ext_2]
