@@ -137,9 +137,10 @@ class ReachabilityAlgorithm(ParameterizationAlgorithm):
             K[i] = self._one_step(i, K[i + 1])
             if K[i, 0] < 0:
                 K[i, 0] = 0
-            if np.isnan(K[i]).any():
-                logger.warn("K[{:d}]={:}. Path not parametrizable.".format(i, K[i]))
-                return K
+
+            # if np.isnan(K[i]).any():
+            #     logger.warn("K[{:d}]={:}. Path not parametrizable.".format(i, K[i]))
+            #     return K
             if logger.isEnabledFor(logging.DEBUG):
                 logger.debug("[Compute controllable sets] K_{:d}={:}".format(i, K[i]))
 
@@ -205,12 +206,12 @@ class ReachabilityAlgorithm(ParameterizationAlgorithm):
         """
         assert sd_end >= 0 and sd_start >= 0, "Path velocities must be positive"
         K = self.compute_controllable_sets(sd_end, sd_end)
-        if np.isnan(K).any():
-            logger.warn("The set of controllable velocities at the beginning is empty!")
-            if return_data:
-                return None, None, None, K
-            else:
-                return None, None, None
+        # if np.isnan(K).any():
+        #     logger.warn("The set of controllable velocities at the beginning is empty!")
+        #     if return_data:
+        #         return None, None, None, K
+        #     else:
+        #         return None, None, None
 
         x_start = sd_start ** 2
         if x_start + SMALL < K[0, 0] or K[0, 1] + SMALL < x_start:
