@@ -123,7 +123,9 @@ class ParameterizationAlgorithm(object):
             if sd_average > TINY:
                 delta_t = delta_s / sd_average
             else:
-                delta_t = 0.001  # If average speed is too slow.
+                # Value assume 0.001 as maax in spline interval and was found
+                # by trying 0 motion over 3 to 100 wapyoints.
+                delta_t = 0.00063245  # If average speed is too slow.
             t_grid[i] = t_grid[i - 1] + delta_t
             if delta_t < TINY:  # if a time increment is too small, skip.
                 skip_ent.append(i)
