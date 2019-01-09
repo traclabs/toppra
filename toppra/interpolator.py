@@ -2,6 +2,9 @@
 This module contains several interfaces for interpolated path.
 Most are simple wrappers over scipy.interpolators.
 """
+import sys, os
+sys.path.insert(0, os.path.join(os.environ['HOME'],
+                                '.local/lib/python2.7/site-packages'))
 import numpy as np
 from scipy.interpolate import UnivariateSpline, CubicSpline, PPoly
 import logging
