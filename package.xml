@@ -14,5 +14,6 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <depend>python-pip</depend>
+  <depend>python-numpy</depend>
   
 </package>
