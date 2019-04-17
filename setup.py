@@ -25,7 +25,7 @@ PACKAGES = ["toppra",
             "toppra.algorithm.reachabilitybased",
             "toppra.solverwrapper"]
 
-os.environ['CFLAGS'] = '-O3 -g0'
+os.environ['CFLAGS'] = '-O3 -g0 -Wno-#warnings'
 
 ext_1 = Extension(SRC_DIR + "._CythonUtils",
                   [SRC_DIR + "/_CythonUtils.pyx"],
