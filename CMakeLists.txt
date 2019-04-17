@@ -3,10 +3,17 @@ project(toppra)
 find_package(catkin REQUIRED)
 catkin_package()
 
-set_property(
-  GLOBAL PROPERTY 
-  RULE_LAUNCH_CUSTOM [=[env CFLAGS="-Wno-#warnings"]=]
-  )
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+  set_property(
+    GLOBAL PROPERTY
+    RULE_LAUNCH_CUSTOM [=[env CFLAGS="-Wno-cpp -Wno-deprecated-register"]=]
+    )
+else()
+  set_property(
+    GLOBAL PROPERTY
+    RULE_LAUNCH_CUSTOM [=[env CFLAGS="-Wno-cpp -Wno-unused-result"]=]
+    )
+endif()
       
 add_custom_command(OUTPUT requirements_installed.txt
   COMMAND pip install -r ${CMAKE_CURRENT_SOURCE_DIR}/requirements.txt --user && touch requirements_installed.txt
