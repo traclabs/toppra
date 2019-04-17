@@ -3,6 +3,11 @@ project(toppra)
 find_package(catkin REQUIRED)
 catkin_package()
 
+set_property(
+  GLOBAL PROPERTY 
+  RULE_LAUNCH_CUSTOM [=[env CFLAGS="-Wno-#warnings"]=]
+  )
+      
 add_custom_command(OUTPUT requirements_installed.txt
   COMMAND pip install -r ${CMAKE_CURRENT_SOURCE_DIR}/requirements.txt --user && touch requirements_installed.txt
 )
