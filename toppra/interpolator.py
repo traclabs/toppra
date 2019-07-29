@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.join(os.environ['HOME'],
 import logging
 import warnings
 import numpy as np
-from scipy.interpolate import UnivariateSpline, PPoly
+from scipy.interpolate import UnivariateSpline, CubicSpline, PPoly
 
 logger = logging.getLogger(__name__)
 
