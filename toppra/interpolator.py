@@ -1,10 +1,14 @@
 """Implementations of interpolators, which representgeometric paths.
 
 """
+import sys, os
+sys.path.insert(0, os.path.join(os.environ['HOME'],
+                                '.local/lib/python2.7/site-packages'))
+
 import logging
 import warnings
 import numpy as np
-from scipy.interpolate import UnivariateSpline, CubicSpline, PPoly
+from scipy.interpolate import UnivariateSpline, PPoly
 
 logger = logging.getLogger(__name__)
 
