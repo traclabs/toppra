@@ -1,19 +1,14 @@
 <?xml version="1.0"?>
 <package format="2">
-
   <name>toppra</name>
   <version>0.2.0</version>
   <description>
     TRACLabs ROS port of the TOPP-RA library
-  </description> 
+  </description>
   <maintainer email="pbeeson@traclabs.com">Patrick Beeson</maintainer>
   <author email="hungpham2511@gmail.com">Hung Phamq</author>
   <license>MIT</license>
-
-  
   <buildtool_depend>catkin</buildtool_depend>
-
   <depend>python-pip</depend>
   <depend>python-numpy</depend>
-  
 </package>
