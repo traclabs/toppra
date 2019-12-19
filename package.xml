@@ -10,8 +10,9 @@
   <author email="hungpham2511@gmail.com">Hung Phamq</author>
   <license>MIT</license>
 
-  
-  <buildtool_depend>catkin</buildtool_depend>
+  <export>
+      <build_type>ament_cmake</build_type>
+  </export>
 
   <depend>python3-pip</depend>
   
