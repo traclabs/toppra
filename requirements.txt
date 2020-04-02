@@ -6,4 +6,5 @@ enum34
 cvxpy>=0.4.11, <1.0.0
 pytest<5.0
 pytest-cov
+kiwisolver<1.2.0
 matplotlib<3.0.0
