@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 2.8.3)
 project(toppra)
 
-find_package(ament_cmake REQUIRED)
-ament_package()
+find_package(catkin REQUIRED)
+catkin_package()
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   set_property(
