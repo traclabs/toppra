@@ -5,7 +5,7 @@ coloredlogs==14.0
 configparser==4.0.2 
 contextlib2==0.6.0.post1 
 coverage==5.1
-cryptography==2.1.4
+#cryptography==2.1.4
 CVXcanon==0.1.1
 cvxpy==0.4.11 
 cycler==0.10.0 
